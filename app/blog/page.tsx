@@ -67,10 +67,9 @@ export default function BlogIndexPage() {
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="mb-4 text-4xl font-bold text-foreground lg:text-5xl text-balance">Health & Wellness Blog</h1>
+            <h1 className="mb-4 text-4xl font-bold text-foreground lg:text-5xl text-balance">Tech Savvy Hub Blog</h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground text-pretty">
-              Discover expert insights, practical guides, and in-depth research to help your family live a healthier,
-              chemical-free life.
+              Expert-led tutorials on technology, automation, and productivity. Master technical skills with comprehensive guides designed for tech enthusiasts and digital professionals.
             </p>
           </div>
         </div>
@@ -85,7 +84,7 @@ export default function BlogIndexPage() {
               <Search className="absolute left-3 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search articles..."
+                placeholder="Search tutorials and articles..."
                 className="pl-10"
                 value={searchQuery}
                 onChange={(e) => {
