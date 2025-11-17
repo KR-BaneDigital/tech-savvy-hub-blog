@@ -11,9 +11,9 @@ export function BlogFooter() {
           <div>
             <div className="mb-4 flex items-center gap-2">
               <Image src="/logo.jpg" alt="Logo" width={24} height={24} className="size-6" />
-              <span className="text-lg font-semibold text-foreground">Blog</span>
+              <span className="text-lg font-semibold text-foreground">Tech Savvy Hub</span>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">Add your blog description here.</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">Master technology and automation with expert-led tutorials. Enhance your productivity and technical skills through comprehensive guides for tech enthusiasts and digital professionals.</p>
           </div>
           <div>
             <h4 className="mb-4 text-sm font-semibold text-foreground">Content</h4>
@@ -74,7 +74,7 @@ export function BlogFooter() {
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Blog. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Tech Savvy Hub. All rights reserved.</p>
         </div>
       </div>
     </footer>
