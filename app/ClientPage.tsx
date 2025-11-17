@@ -112,7 +112,7 @@ export default function ClientPage() {
                             </span>
                             <span className="flex items-center gap-1">
                               <User className="h-3 w-3" />
-                              {post.author}
+                              {post.author.name}
                             </span>
                           </div>
                         </div>
@@ -174,7 +174,7 @@ export default function ClientPage() {
                     </span>
                     <span className="flex items-center gap-1">
                       <User className="h-4 w-4" />
-                      {featuredPost.author}
+                      {featuredPost.author.name}
                     </span>
                   </div>
                 </CardContent>
@@ -251,8 +251,8 @@ export default function ClientPage() {
                   <SelectContent>
                     <SelectItem value="all">All Categories</SelectItem>
                     {categories.map((category) => (
-                      <SelectItem key={category.slug} value={category.slug}>
-                        {category.name}
+                      <SelectItem key={category} value={category}>
+                        {category.charAt(0).toUpperCase() + category.slice(1)}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -296,7 +296,7 @@ export default function ClientPage() {
                         </span>
                         <span className="flex items-center gap-1">
                           <User className="h-4 w-4" />
-                          {post.author}
+                          {post.author.name}
                         </span>
                       </div>
                     </CardContent>
@@ -322,23 +322,32 @@ export default function ClientPage() {
               Explore by Category
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {categories.map((category) => (
-                <Link
-                  key={category.slug}
-                  href={`/category/${category.slug}`}
-                  className="group"
-                >
-                  <Card className="text-center p-8 hover:shadow-lg transition-all hover:scale-105">
-                    <div className="text-4xl mb-4">{category.icon}</div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {category.name}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {category.description}
-                    </p>
-                  </Card>
-                </Link>
-              ))}
+              {categories.map((category) => {
+                const categoryData = {
+                  automation: { icon: "⚡", description: "Streamline your workflow with automation tools" },
+                  development: { icon: "💻", description: "Modern web development tutorials" },
+                  productivity: { icon: "🚀", description: "Tips to boost your productivity" },
+                  technology: { icon: "🔧", description: "Latest tech trends and innovations" },
+                }[category] || { icon: "📚", description: "Explore this category" }
+
+                return (
+                  <Link
+                    key={category}
+                    href={`/category/${category}`}
+                    className="group"
+                  >
+                    <Card className="text-center p-8 hover:shadow-lg transition-all hover:scale-105">
+                      <div className="text-4xl mb-4">{categoryData.icon}</div>
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                        {category.charAt(0).toUpperCase() + category.slice(1)}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {categoryData.description}
+                      </p>
+                    </Card>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>
