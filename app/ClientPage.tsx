@@ -31,64 +31,60 @@ export default function ClientPage() {
     <div className="flex min-h-screen flex-col bg-background">
       <BlogHeader />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="border-b border-border bg-card">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-                Tech Savvy Hub
-              </h1>
-              <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-                Master technology and automation with expert-led tutorials. Enhance your productivity and technical skills through comprehensive guides for tech enthusiasts and digital professionals.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Articles Section */}
+        {/* Hero Section with Featured Articles */}
         {featuredPost && (
           <section className="border-b border-border bg-muted/50">
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-              <h2 className="mb-8 text-2xl font-bold text-foreground">Featured Articles</h2>
-              <div className="grid gap-6 lg:grid-cols-2">
-                {/* Main Featured Post */}
-                <Link href={`/blog/${featuredPost.slug}`} className="group">
-                  <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
-                    <div className="relative aspect-video">
-                      <Image
-                        src={featuredPost.image || "/placeholder.svg"}
-                        alt={featuredPost.title}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="p-6">
-                      <div className="mb-3 flex items-center gap-2">
-                        <Badge variant="secondary">{featuredPost.category}</Badge>
-                        <span className="text-sm text-muted-foreground">{featuredPost.readTime}</span>
-                      </div>
-                      <h3 className="mb-3 text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                        {featuredPost.title}
-                      </h3>
-                      <p className="mb-4 text-muted-foreground line-clamp-3">{featuredPost.excerpt}</p>
-                      <div className="flex items-center gap-3">
+              <div className="grid gap-8 lg:grid-cols-2">
+                {/* Left Side - Hero Title and Main Featured Post */}
+                <div className="space-y-6">
+                  <div>
+                    <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                      Tech Savvy Hub
+                    </h1>
+                    <p className="text-lg text-muted-foreground">
+                      Master technology and automation with expert-led tutorials. Enhance your productivity and technical skills through comprehensive guides for tech enthusiasts and digital professionals.
+                    </p>
+                  </div>
+                  
+                  <Link href={`/blog/${featuredPost.slug}`} className="group block">
+                    <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
+                      <div className="relative aspect-video">
                         <Image
-                          src={featuredPost.author.image || "/placeholder.svg"}
-                          alt={featuredPost.author.name}
-                          width={40}
-                          height={40}
-                          className="rounded-full"
+                          src={featuredPost.image || "/placeholder.svg"}
+                          alt={featuredPost.title}
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
                         />
-                        <div>
-                          <p className="text-sm font-medium text-foreground">{featuredPost.author.name}</p>
-                          <p className="text-xs text-muted-foreground">{featuredPost.date}</p>
-                        </div>
                       </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+                      <CardContent className="p-6">
+                        <div className="mb-3 flex items-center gap-2">
+                          <Badge variant="secondary">{featuredPost.category}</Badge>
+                          <span className="text-sm text-muted-foreground">{featuredPost.readTime}</span>
+                        </div>
+                        <h3 className="mb-3 text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                          {featuredPost.title}
+                        </h3>
+                        <p className="mb-4 text-muted-foreground line-clamp-3">{featuredPost.excerpt}</p>
+                        <div className="flex items-center gap-3">
+                          <Image
+                            src={featuredPost.author.image || "/placeholder.svg"}
+                            alt={featuredPost.author.name}
+                            width={40}
+                            height={40}
+                            className="rounded-full"
+                          />
+                          <div>
+                            <p className="text-sm font-medium text-foreground">{featuredPost.author.name}</p>
+                            <p className="text-xs text-muted-foreground">{featuredPost.date}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </div>
 
-                {/* Side Featured Posts */}
+                {/* Right Side - Featured Posts */}
                 <div className="flex flex-col gap-6">
                   {featuredSidePosts.map((post) => (
                     <Link key={post.id} href={`/blog/${post.slug}`} className="group">
