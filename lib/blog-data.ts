@@ -22,6 +22,40 @@ export interface BlogPost {
   relatedPosts?: string[]
 }
 
+export interface Category {
+  name: string
+  slug: string
+  description: string
+  icon: string
+}
+
+export const categories: Category[] = [
+  {
+    name: "Automation",
+    slug: "automation",
+    description: "Streamline your workflow with automation tools and techniques",
+    icon: "⚡",
+  },
+  {
+    name: "Development",
+    slug: "development",
+    description: "Modern web development tutorials and best practices",
+    icon: "💻",
+  },
+  {
+    name: "Productivity",
+    slug: "productivity",
+    description: "Tips and tools to boost your productivity",
+    icon: "🚀",
+  },
+  {
+    name: "Technology",
+    slug: "technology",
+    description: "Latest tech trends and innovations",
+    icon: "🔧",
+  },
+]
+
 export const blogPosts: BlogPost[] = [
   {
     id: "1",
@@ -46,7 +80,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 1",
+    category: "automation",
     tags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
     date: "January 8, 2025",
     readTime: "8 min read",
@@ -83,7 +117,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 2",
+    category: "development",
     tags: ["Tag 5", "Tag 6", "Tag 7", "Tag 8"],
     date: "January 5, 2025",
     readTime: "6 min read",
@@ -120,7 +154,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 3",
+    category: "productivity",
     tags: ["Tag 9", "Tag 10", "Tag 11", "Tag 12"],
     date: "January 3, 2025",
     readTime: "10 min read",
@@ -157,7 +191,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 1",
+    category: "automation",
     tags: ["Tag 1", "Tag 2", "Tag 13", "Tag 14"],
     date: "December 30, 2024",
     readTime: "5 min read",
@@ -194,7 +228,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 2",
+    category: "development",
     tags: ["Tag 15", "Tag 16", "Tag 17", "Tag 18"],
     date: "January 7, 2025",
     readTime: "7 min read",
@@ -231,7 +265,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 3",
+    category: "technology",
     tags: ["Tag 19", "Tag 20", "Tag 21", "Tag 22"],
     date: "January 4, 2025",
     readTime: "9 min read",
@@ -268,7 +302,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 1",
+    category: "automation",
     tags: ["Tag 23", "Tag 24", "Tag 25", "Tag 26"],
     date: "January 2, 2025",
     readTime: "8 min read",
@@ -305,7 +339,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 2",
+    category: "development",
     tags: ["Tag 27", "Tag 28", "Tag 29", "Tag 30"],
     date: "December 28, 2024",
     readTime: "7 min read",
@@ -342,7 +376,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 3",
+    category: "productivity",
     tags: ["Tag 31", "Tag 32", "Tag 33", "Tag 34"],
     date: "December 26, 2024",
     readTime: "10 min read",
@@ -379,7 +413,7 @@ Add content here...
 Add content here...
     `,
     image: "/placeholder.svg?height=800&width=1200",
-    category: "Category 1",
+    category: "technology",
     tags: ["Tag 35", "Tag 36", "Tag 37", "Tag 38"],
     date: "December 23, 2024",
     readTime: "12 min read",
@@ -434,6 +468,6 @@ export function filterPosts(query: string, category?: string): BlogPost[] {
 
 // Get all categories
 export function getAllCategories(): string[] {
-  const categories = new Set(blogPosts.map((post) => post.category))
-  return Array.from(categories).sort()
+  const categoryNames = new Set(blogPosts.map((post) => post.category))
+  return Array.from(categoryNames).sort()
 }
