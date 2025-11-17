@@ -16,12 +16,13 @@ import {
 } from "@/components/ui/select"
 import { BlogHeader } from "@/components/blog-header"
 import { BlogFooter } from "@/components/blog-footer"
-import { blogPosts, categories } from "@/lib/blog-data"
+import { blogPosts, getAllCategories } from "@/lib/blog-data"
 import { Search, Calendar, User, ArrowRight } from "lucide-react"
 
 export default function ClientPage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
+  const categories = getAllCategories()
 
   const filteredPosts = useMemo(() => {
     return blogPosts.filter((post) => {
