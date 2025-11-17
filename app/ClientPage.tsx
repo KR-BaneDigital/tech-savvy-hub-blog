@@ -24,6 +24,7 @@ export default function ClientPage() {
   )
 
   const featuredPost = blogPosts.find((post) => post.featured)
+  const featuredSidePosts = blogPosts.filter((post) => !post.featured).slice(0, 3)
   const recentPosts = filteredPosts.slice(0, 6)
 
   return (
@@ -44,15 +45,16 @@ export default function ClientPage() {
           </div>
         </section>
 
-        {/* Featured Post */}
+        {/* Featured Articles Section */}
         {featuredPost && (
           <section className="border-b border-border bg-muted/50">
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-              <h2 className="mb-8 text-2xl font-bold text-foreground">Featured Article</h2>
-              <Link href={`/blog/${featuredPost.slug}`} className="group block">
-                <Card className="overflow-hidden transition-all hover:shadow-lg">
-                  <div className="grid gap-6 md:grid-cols-2">
-                    <div className="relative aspect-video md:aspect-auto">
+              <h2 className="mb-8 text-2xl font-bold text-foreground">Featured Articles</h2>
+              <div className="grid gap-6 lg:grid-cols-2">
+                {/* Main Featured Post */}
+                <Link href={`/blog/${featuredPost.slug}`} className="group">
+                  <Card className="h-full overflow-hidden transition-all hover:shadow-lg">
+                    <div className="relative aspect-video">
                       <Image
                         src={featuredPost.image || "/placeholder.svg"}
                         alt={featuredPost.title}
@@ -60,7 +62,7 @@ export default function ClientPage() {
                         className="object-cover transition-transform group-hover:scale-105"
                       />
                     </div>
-                    <CardContent className="flex flex-col justify-center p-6">
+                    <CardContent className="p-6">
                       <div className="mb-3 flex items-center gap-2">
                         <Badge variant="secondary">{featuredPost.category}</Badge>
                         <span className="text-sm text-muted-foreground">{featuredPost.readTime}</span>
@@ -83,9 +85,39 @@ export default function ClientPage() {
                         </div>
                       </div>
                     </CardContent>
-                  </div>
-                </Card>
-              </Link>
+                  </Card>
+                </Link>
+
+                {/* Side Featured Posts */}
+                <div className="flex flex-col gap-6">
+                  {featuredSidePosts.map((post) => (
+                    <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                      <Card className="overflow-hidden transition-all hover:shadow-lg">
+                        <div className="grid gap-4 sm:grid-cols-3">
+                          <div className="relative aspect-video sm:aspect-auto">
+                            <Image
+                              src={post.image || "/placeholder.svg"}
+                              alt={post.title}
+                              fill
+                              className="object-cover transition-transform group-hover:scale-105"
+                            />
+                          </div>
+                          <CardContent className="p-4 sm:col-span-2">
+                            <div className="mb-2 flex items-center gap-2">
+                              <Badge variant="secondary" className="text-xs">{post.category}</Badge>
+                              <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                            </div>
+                            <h3 className="mb-2 text-lg font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                              {post.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                          </CardContent>
+                        </div>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
         )}
