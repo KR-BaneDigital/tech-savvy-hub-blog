@@ -38,8 +38,8 @@ export function BlogHeader() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="size-8" />
-            <span className="text-xl font-semibold text-foreground">Blog</span>
+            <Image src="/logo.jpg" alt="Tech Savvy Hub Logo" width={32} height={32} className="size-8" />
+            <span className="text-xl font-semibold text-foreground">Tech Savvy Hub</span>
           </Link>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
             <Link
