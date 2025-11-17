@@ -43,22 +43,28 @@ export function BlogHeader() {
           </Link>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
             <Link
-              href="/category/1"
+              href="/category/automation"
               className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
-              Category 1
+              Automation
             </Link>
             <Link
-              href="/category/2"
+              href="/category/development"
               className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
-              Category 2
+              Development
             </Link>
             <Link
-              href="/category/3"
+              href="/category/productivity"
               className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
             >
-              Category 3
+              Productivity
+            </Link>
+            <Link
+              href="/category/technology"
+              className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+            >
+              Technology
             </Link>
             <Link
               href="/blog"
