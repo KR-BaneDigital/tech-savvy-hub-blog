@@ -169,7 +169,7 @@ export default function ClientPage() {
           <div className="flex h-16 items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
               <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="size-8" />
-              <span className="text-xl font-semibold text-foreground">Blog</span>
+              <span className="text-xl font-semibold text-foreground">Tech Savvy Hub</span>
             </Link>
             <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
               <Link
@@ -462,7 +462,7 @@ export default function ClientPage() {
             <div>
               <div className="mb-4 flex items-center gap-2">
                 <Image src="/logo.jpg" alt="Logo" width={24} height={24} className="size-6" />
-                <span className="text-lg font-semibold text-foreground">Blog</span>
+                <span className="text-lg font-semibold text-foreground">Tech Savvy Hub</span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">Add your blog description here.</p>
             </div>
@@ -537,7 +537,7 @@ export default function ClientPage() {
             </div>
           </div>
           <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Blog. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Tech Savvy Hub. All rights reserved.</p>
           </div>
         </div>
       </footer>
